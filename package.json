@@ -13,5 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "snowpack": "^3.8.8"
+  },
+  "dependencies": {
+    "axios": "^0.22.0",
+    "remarkable": "^2.0.1"
   }
 }

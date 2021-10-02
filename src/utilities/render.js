@@ -1,6 +1,7 @@
 /* --------------------------------- IMPORTS -------------------------------- */
 
 import Navbar from "./../components/Navbar";
+import Article from "./../components/Article";
 import HomePage from "./../pages/HomePage.js";
 import AboutPage from "./../pages/AboutPage.js";
 
@@ -20,7 +21,7 @@ export const buildPage = (pageName) => {
   if (pageName === "home") {
     root.appendChild(HomePage());
   } else if (pageName === "about") {
-    root.appendChild(AboutPage());
+    root.appendChild(Article({ article: "another-test" }));
   } else {
     const invalidLayoutError = document.createElement("h1");
     invalidLayoutError.textContent = "ERROR: INVALID/MISSING LAYOUT!!!";
@@ -53,13 +54,20 @@ export const getState = () => {
 export const setPage = (page) => {
   const oldState = getState();
 
+  // OldState truthy? Set new state; else return error
   const newState = oldState
     ? { ...oldState, currentPage: page }
     : console.error("YOU NEED TO RENDER BEFORE CALLING SETPAGE!!!");
-    
+
+  // Update state value in localstorage
   localStorage.setItem(
     "appState",
     JSON.stringify(Object.assign({}, oldState, newState))
   );
   return render(getState());
+};
+
+export const getArticlePath = (name) => {
+  const articlePath = `./../dist/articles/${name}.md`;
+  return articlePath;
 };
