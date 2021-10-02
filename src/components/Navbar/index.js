@@ -3,31 +3,50 @@
 import { setPage } from "./../../utilities/render.js";
 import "./Navbar.css";
 
-/* ------------------------------- DEFINITIONS ------------------------------ */
+/* -------------------------------------------------------------------------- */
+/*                              NAVBAR COMPONENT                              */
+/* -------------------------------------------------------------------------- */
 
 const Navbar = () => {
+  // Create elements
   const container = document.createElement("header");
-  container.className = "navbar";
-
+  const body = document.createElement("div");
+  const leftSide = document.createElement("div");
+  const rightSide = document.createElement("nav");
+  const websiteName = document.createElement("h3");
   const homeLink = document.createElement("a");
   const aboutLink = document.createElement("a");
-
+  // Append elements
+  const bodyElements = [leftSide, rightSide];
+  const rightSideElements = [homeLink, aboutLink];
+  const leftSideElements = [websiteName];
+  container.appendChild(body);
+  bodyElements.forEach((element) => {
+    body.appendChild(element);
+  });
+  rightSideElements.forEach((element) => {
+    rightSide.appendChild(element);
+  });
+  leftSideElements.forEach((element) => {
+    leftSide.appendChild(element);
+  });
+  // Assign content
+  websiteName.textContent = "Pooch's Corner";
+  homeLink.textContent = "HOME";
+  aboutLink.textContent = "ABOUT";
+  // Assign classes
+  container.className = "navbar";
+  body.className = "body";
+  leftSide.className = "left";
+  rightSide.className = "right";
+  // Attach event listeners
   homeLink.addEventListener("click", () => {
     setPage("home");
   });
   aboutLink.addEventListener("click", () => {
     setPage("about");
   });
-
-  homeLink.textContent ="HOME";
-  aboutLink.textContent = "ABOUT";
-
-  const elements = [homeLink, aboutLink];
-
-  elements.forEach((element) => {
-    container.appendChild(element);
-  });
-
+  // Return the container element
   return container;
 };
 

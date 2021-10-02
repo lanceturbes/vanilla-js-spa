@@ -1,3 +1,29 @@
-div.navbar {
+header.navbar {
   background-color: #2f2f2f;
+}
+
+header.navbar > div.body {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  max-width: var(--theme-width-desktop);
+  padding: 2rem;
+}
+
+header.navbar > div.body > div.left > h3 {
+  color: var(--theme-color-light);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+header.navbar > div.body > nav.right > a {
+  color: var(--theme-color-light);
+  letter-spacing: 0.1rem;
+  margin-left: 2rem;
+  transition: 200ms;
+}
+
+header.navbar > div.body > nav.right > a:hover {
+  color: var(--theme-color-accent);
 }

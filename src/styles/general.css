@@ -20,3 +20,7 @@ h3 {
 p, a, button {
   font-size: 1.6rem;
 }
+
+a, button {
+  cursor: pointer;
+}
