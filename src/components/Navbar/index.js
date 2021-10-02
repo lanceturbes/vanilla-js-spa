@@ -18,17 +18,17 @@ const Navbar = () => {
   const aboutLink = document.createElement("a");
   // Append elements
   const bodyElements = [leftSide, rightSide];
-  const rightSideElements = [homeLink, aboutLink];
   const leftSideElements = [websiteName];
+  const rightSideElements = [homeLink, aboutLink];
   container.appendChild(body);
   bodyElements.forEach((element) => {
     body.appendChild(element);
   });
-  rightSideElements.forEach((element) => {
-    rightSide.appendChild(element);
-  });
   leftSideElements.forEach((element) => {
     leftSide.appendChild(element);
+  });
+  rightSideElements.forEach((element) => {
+    rightSide.appendChild(element);
   });
   // Assign content
   websiteName.textContent = "Pooch's Corner";
